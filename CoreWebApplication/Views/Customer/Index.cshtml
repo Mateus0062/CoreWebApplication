@@ -6,16 +6,31 @@
 
 <h1>Index</h1>
 
+<!--ViewBag-->
+
 <h3>@ViewBag.Message</h3>
 
 <p>There are @ViewBag.CustomerCount customers added into the list</p>
 
-<ul>
-    @foreach(var item in ViewBag.CustomerList)
-    {
-        <li>@item.Id - @item.Name - @item.Amount</li>
-    }
-</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Customer Id</th>
+            <th>Customer Name</th>
+            <th>Customer Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in ViewBag.CustomerList)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Amount</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 <hr/>
 
