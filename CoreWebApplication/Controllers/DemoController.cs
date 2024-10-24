@@ -1,5 +1,6 @@
 ﻿using CoreWebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace CoreWebApplication.Controllers
 {
@@ -67,5 +68,18 @@ namespace CoreWebApplication.Controllers
             HttpContext.Session.Remove("Username");
             return RedirectToAction("Index");
         }
+        
+        public IActionResult QueryTest()
+        {
+            string name = "King Kochhar";
+            if (!String.IsNullOrEmpty(HttpContext.Request.Query["name"]))
+            {
+                name = HttpContext.Request.Query["name"];
+            }
+            ViewBag.Name = name;
+
+            return View();
+            
+        }   
     }
 }
