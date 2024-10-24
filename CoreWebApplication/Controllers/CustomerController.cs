@@ -32,5 +32,7 @@ namespace CoreWebApplication.Controllers
         {
             return View();
         }
+
+
     }
 }

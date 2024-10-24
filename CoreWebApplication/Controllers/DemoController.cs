@@ -48,5 +48,24 @@ namespace CoreWebApplication.Controllers
         {
             return View();
         }
+
+        public IActionResult Login()
+        {
+            HttpContext.Session.SetString("username", "Mateus");
+            return RedirectToAction("Sucess");
+
+        }
+
+        public IActionResult Sucess()
+        {
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            return View();
+        }
+
+        public IActionResult logout()
+        {
+            HttpContext.Session.Remove("Username");
+            return RedirectToAction("Index");
+        }
     }
 }
