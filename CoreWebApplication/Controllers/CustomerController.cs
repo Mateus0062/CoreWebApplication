@@ -25,6 +25,9 @@ namespace CoreWebApplication.Controllers
             return View();
         }
 
+        //[Route("~/")]
+        //[Route("/sample/message")]
+
         public IActionResult Message()
         {
             return View();
