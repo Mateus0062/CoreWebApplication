@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CoreWebApplication.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CoreWebApplication.Controllers
 {
@@ -19,6 +20,17 @@ namespace CoreWebApplication.Controllers
         {
             ViewBag.Username = username;
             ViewBag.Password = password;
+            return View();
+        }
+
+        public IActionResult StronglyTypedLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult LoginSucess()
+        {
             return View();
         }
     }
