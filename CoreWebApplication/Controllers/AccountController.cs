@@ -60,5 +60,20 @@ namespace CoreWebApplication.Controllers
             };
             return View(user);
         }
+
+        public IActionResult GetConta() 
+        { 
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult PostConta(Conta conta)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("PostConta");
+            }
+            return RedirectToAction("GetConta");
+        } 
     }
 }
