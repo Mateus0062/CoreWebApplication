@@ -31,8 +31,15 @@ namespace CoreWebApplication.Controllers
         [HttpPost]
         public IActionResult LoginSucess(Account login)
         {
-            ViewBag.Username = login.Username;
-            ViewBag.Password = login.Password;
+            if(login.Username != null && login.Password != null)  
+            {
+                if (login.Username.Equals("admin") && login.Password.Equals("admin"))
+                {
+                    ViewBag.Message = "You are succesfully logged in ";
+                    return View();
+                }
+            }
+            ViewBag.Message = "Invalid Credentials";
             return View();
         }
 
